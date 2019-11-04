@@ -33,7 +33,7 @@ DTSTAMP:20191104T191325Z
 DTSTART;TZID="Eastern Time (US & Canada)":20191107T100000
 DTEND;TZID="Eastern Time (US & Canada)":20191107T103000
 LAST-MODIFIED:20191104T191325Z
-SUMMARY:Reminder to register for August 21 and 22 Data Carpentry
+SUMMARY:Reminder to register for November 21 and 22 Data Carpentry
 DESCRIPTION:https://www.eventbrite.com/e/quarterly-si-data-carpentry-fall-
  2019-edition-tickets-79583669899\n
 ORGANIZER:MAILTO:SI-DataScience@si.edu
