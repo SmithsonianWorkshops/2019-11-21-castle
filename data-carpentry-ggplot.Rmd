@@ -1,0 +1,83 @@
+Import libraries and create surveys_complete.
+
+```{r}
+library(tidyverse)
+download.file(url="https://ndownloader.figshare.com/files/2292169", 
+              destfile = "portal_data_joined.csv")
+surveys <- read_csv("portal_data_joined.csv")
+surveys_complete <- surveys %>%  
+  filter(!is.na(weight),    
+         !is.na(hindfoot_length), 
+         !is.na(sex))
+```
+
+Use ggplot() to plot the data. (Should get blank canvas.)
+
+```{r}
+ggplot(data = surveys_complete)
+```
+
+Aesthetic mapping - assign weight to x-axis, hindfoot_length to y-axis.
+
+```{r}
+ggplot(data = surveys_complete, mapping = aes(x = weight, y = hindfoot_length))
+```
+
+Make points show up by adding geom_point()
+
+```{r}
+ggplot(data = surveys_complete, mapping = aes(x = weight, y = hindfoot_length)) +
+  geom_point()
+```
+
+Change transparency of points.
+
+```{r}
+ggplot(data = surveys_complete, mapping = aes(x = weight, y = hindfoot_length)) +
+    geom_point(alpha = 0.1)
+```
+
+Change color of points.
+
+```{r}
+ggplot(data = surveys_complete, mapping = aes(x = weight, y = hindfoot_length)) +
+    geom_point(alpha = 0.1, color = "blue")
+```
+
+Color points according to species_id.
+
+```{r}
+ggplot(data = surveys_complete, mapping = aes(x = weight, y = hindfoot_length)) +
+    geom_point(alpha = 0.1, aes(color = species_id))
+```
+
+Move color into the ggplot() function as an additional aesthetic mapping.
+
+```{r}
+ggplot(data = surveys_complete, mapping = aes(x = weight, y = hindfoot_length, color = species_id)) +
+    geom_point(alpha = 0.1)
+```
+
+Map jitter instead of points.
+
+```{r}
+ggplot(data = surveys_complete, mapping = aes(x = weight, y = hindfoot_length, color = species_id)) +
+    geom_jitter(alpha = 0.1)
+```
+
+Map the data as a boxplot.
+
+```{r}
+ggplot(data = surveys_complete, mapping = aes(x = species_id, y = weight)) +
+    geom_boxplot()
+```
+
+Map the data as a boxplot and add jitter.
+
+```{r}
+ggplot(data = surveys_complete, mapping = aes(x = species_id, y = weight)) +
+    geom_boxplot(alpha = 0) +
+    geom_jitter(alpha = 0.3, color = "tomato")
+```
+
+
